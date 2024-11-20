@@ -1,8 +1,7 @@
 project "GLFW"
 	kind "StaticLib"
 	language "C"
-	staticruntime "off"
-	warnings "off"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -28,7 +27,7 @@ project "GLFW"
 	}
 
 	filter "system:linux"
-		pic "On"
+		pic "on"
 
 		systemversion "latest"
 		
@@ -102,7 +101,7 @@ project "GLFW"
 		runtime "Debug"
 		symbols "on"
 
-	filter { "system:windows", "configurations:Debug-AS" }	
+	filter { "system:windows", "configurations:Debug-AS" }
 		runtime "Debug"
 		symbols "on"
 		sanitize { "Address" }
